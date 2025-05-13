@@ -1,0 +1,8 @@
+<launch>
+    <machine name="slave_raspy" address="192.168.150.52" env-loader="/home//catkin_ws/devel/env.sh" user="ubuntu" password="rosubuntu"/>
+    <node machine="slave_raspy" name="joy_operation" pkg="motor_operation" type="joy_operation"/>
+    <node machine="slave_raspy" name="motor_control" pkg="rosserial_python" type="serial_node.py">
+        <param name="port" value="/dev/ttyACM0"/>
+        <param name="baud" value="115200"/>
+    </node>
+</launch>

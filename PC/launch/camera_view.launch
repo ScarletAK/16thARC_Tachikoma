@@ -1,0 +1,7 @@
+<launch>
+    <group ns="camera_1">
+        <node name="image_view1" pkg="" type="image_view" output="screen">
+            <remap from="image" to="/usb_cam/image_raw"/>
+        </node>
+    </group>
+</launch>

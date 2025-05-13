@@ -1,0 +1,16 @@
+<launch>
+    <machine name="master_raspy" address="192.168.160.51" env-loader="/home//catkin_ws/devel/env.sh" user="ubuntu" password="rosubuntu"/>
+    <group ns="camera_1">
+        <node machine="master_raspy" name="camera1" pkg="" type="camera_node" output="screen">
+            <param name="device" type="string" value="/dev/video0"/>
+            <param name="width" type="int" value="1920"/>
+            <param name="height" type="int" value="1080"/>
+            <param name="fps" type="int" value="30"/>
+            <param name="format" value="jpeg"/>
+            <param name="frame_id" value="camera_1"/>
+        </node>
+        <node name="image_view1" pkg="" type="image_view" output="screen">
+            <remap from="image" to="/usb_cam/image_raw"/>
+        </node>
+    </group>
+</launch>

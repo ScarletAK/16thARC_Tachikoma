@@ -1,0 +1,7 @@
+<launch>
+    <node name="joy_operation" pkg="motor_operation" type="joy_operation"/>
+    <node name="motor_control" pkg="rosserial_python" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/ttyACM0"/>
+        <param name="baud" value="115200"/>
+    </node>
+</launch>
